@@ -24,3 +24,14 @@ then
 git push
 
 authenticate the user
+
+then use 
+
+git commit -a 
+
+
+to commit all changes and use
+
+git push 
+
+again to push all changes
