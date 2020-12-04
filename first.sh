@@ -46,5 +46,67 @@ sudo snap install code --classic
 # audio-tweaks
 
 
+# uninstall the following
+sudo apt-get remove --purge "libreoffice*"
+
+
+sudo apt-get clean
+sudo apt-get autoremove
+
+
+
+
+# add repositories i want
+
+# install mpv
+sudo add-apt-repository ppa:mc3man/mpv-tests
+
+# edit for consistency
+# edit for focal
+# replace groovy with focal
+sudo nano /etc/apt/sources.list.d/mc3man-ubuntu-mpv-tests-groovy.list
+
+# install only office
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys CB2DE8E5
+
+echo "deb https://download.onlyoffice.com/repo/debian squeeze main" | sudo tee /etc/apt/sources.list
+
+
+# install docker
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+
+
+
 # install all software i want
+
+sudo apt install \
+htop \
+virtualbox \
+mpv \
+onlyoffice-desktopeditors \
+ca-certificates \
+gnupg-agent \
+software-properties-common \
+docker-ce \
+docker-ce-cli \
+containerd.io \
+
+
+
+
+
+# install vagrant
+curl -O https://releases.hashicorp.com/vagrant/2.2.14/vagrant_2.2.14_x86_64.deb
+sudo apt install ./vagrant_2.2.14_x86_64.deb
+
+
+# install docker with a script
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+
+# add docker user
+sudo usermod -aG docker $USER
+
+
 
