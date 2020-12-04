@@ -75,6 +75,10 @@ echo "deb https://download.onlyoffice.com/repo/debian squeeze main" | sudo tee /
 # install docker
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   focal \
+   stable"
 
 
 
@@ -107,6 +111,7 @@ sudo sh get-docker.sh
 
 # add docker user
 sudo usermod -aG docker $USER
+sudo reboot
 
 
 
