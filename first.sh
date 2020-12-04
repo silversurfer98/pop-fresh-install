@@ -46,6 +46,11 @@ sudo snap install code --classic
 # audio-tweaks
 
 
+
+# after audio tweaks
+# install spotify
+snap install spotify
+
 # uninstall the following
 sudo apt-get remove --purge "libreoffice*"
 
@@ -95,6 +100,7 @@ software-properties-common \
 docker-ce \
 docker-ce-cli \
 containerd.io \
+docker-compose
 
 
 
@@ -114,4 +120,17 @@ sudo usermod -aG docker $USER
 sudo reboot
 
 
+# download rke
+wget https://github.com/rancher/rke/releases/download/v1.0.14/rke_linux-amd64
+sudo mv rke_linux-amd64 rke
+sudo mv rke /usr/local/bin/
+
+rke --version
+
+
+# download kubectl
+curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+kubectl version --client
 
