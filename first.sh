@@ -11,7 +11,17 @@ sudo cp /boot/grub/x86_64-efi/grub.efi /boot/efi/EFI/pop/grubx64.efi
 
 sudo grub-customizer
 
-#reboot and check
+# open grub customizer go to file --> change environment
+
+# change output file to 
+
+/boot/efi/EFI/pop/grub.cfg
+
+# click save this config
+
+# then save it
+
+# reboot and check
 
 # it will work or do it again
 
@@ -53,7 +63,7 @@ snap install spotify
 
 # uninstall the following
 sudo apt-get remove --purge "libreoffice*"
-
+sudo apt-get remove --purge "firefox*"
 
 sudo apt-get clean
 sudo apt-get autoremove
@@ -63,7 +73,7 @@ sudo apt-get autoremove
 
 # add repositories i want
 
-# install mpv
+# add mpv repo
 sudo add-apt-repository ppa:mc3man/mpv-tests
 
 # edit for consistency
@@ -71,20 +81,17 @@ sudo add-apt-repository ppa:mc3man/mpv-tests
 # replace groovy with focal
 sudo nano /etc/apt/sources.list.d/mc3man-ubuntu-mpv-tests-groovy.list
 
-# install only office
+# add only office repo
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys CB2DE8E5
-
 echo "deb https://download.onlyoffice.com/repo/debian squeeze main" | sudo tee /etc/apt/sources.list
 
 
-# install docker
+# add docker repo
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-
 sudo add-apt-repository \
    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
    focal \
    stable"
-
 
 
 # install all software i want
@@ -100,8 +107,8 @@ software-properties-common \
 docker-ce \
 docker-ce-cli \
 containerd.io \
-docker-compose
-
+docker-compose \
+rhythmbox
 
 
 
@@ -117,7 +124,7 @@ sudo sh get-docker.sh
 
 # add docker user
 sudo usermod -aG docker $USER
-sudo reboot
+
 
 
 # download rke
@@ -134,3 +141,4 @@ chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 kubectl version --client
 
+sudo reboot
